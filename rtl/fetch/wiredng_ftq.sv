@@ -21,4 +21,8 @@ module wired_ftq(
     input  prediction_upd_t upd_req_i
 );
 
+// Fetch target entry
+
+// Fetching logic
+
 endmodule
