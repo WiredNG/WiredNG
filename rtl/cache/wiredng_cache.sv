@@ -1,14 +1,19 @@
-// Wired cache 分多组 bank，同时支持前端取指及后端访存
-// Wired cache 采用非阻塞设计，整个缓存 **不允许** 在任何情况下暂停
-// 所有请求被流水化响应并传出，给出命中结果。
-// Cache 本身不负责任何关于缺失及写入指令的执行，由外部逻辑负责。
-// Cache 对外提供：1 组流水化只读端口； 1 组 SRAM 端口，用于外部逻辑完成缓存重填
-// Cache 按字分bank，如采用 64b 2bank 配置下，同时支持访问可位于两个缓存行的两个字
-// 因此对 Tag 采用复制策略，有几个 Bank，就有几个 Tag。
+// Wired 下一代缓存模块
+// 这个模块只负责进行缓存命中判断，永不阻塞
 
-module wiredng_cache(
-    input clk,
-    input rst_n
+// 注意： Cache 行固定为 8*16 byte == 16*8 byte == 32*4 byte == 128 byte
+// Cache 支持 Banking 策略，每一路 Banking 均复制一组 Tag RAM，按照第3位划分
+/*
+|<-11*3->|*|<-16K->|
+4  TAGS  1*1    0  0
+7  TAGS  4*3    3  0
+*/
+module wiredng_cache #(
+    parameter int WAY_COUNT = 4,
+    parameter int PA_LENGTH = 48
+)(
+    input wire clk,
+    input wire rst_n,
 );
 
 endmodule

@@ -9,7 +9,7 @@ module wired_ckpt #(
     input  wire    backup_i, // 备份当前值到 [id_i]
 
     input  wire        ce_i, // 寄存器值更新
-    input  wire       rec_i, // 寄存器值更新来自 [id_i]
+    input  wire       rec_i, // 寄存器值更新自 [id_i]
 
     input  wire [5:0]  id_i, // 操作 id
 
