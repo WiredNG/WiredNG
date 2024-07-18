@@ -11,10 +11,12 @@ module wiredng_cache_bank #(
     // stage-1 input
     input wire [13:4] index_i,
 
-    // stage-2 input
+    // stage-2 input and address translation
     input wire [PA_LENGTH-1:14] tag_i,
 
-    // stage-3 output
+    // stage-3 compare
+
+    // stage-4 output
     output wire hit_o,
     output wire [63:0] data_o,
 
@@ -24,7 +26,9 @@ module wiredng_cache_bank #(
 
     // stage-2 input
     input  wire [WAY_COUNT-1:0][63:0]  data_i,
-    input  cache_tag_t [WAY_COUNT-1:0] stag_i
+    input  cache_tag_t [WAY_COUNT-1:0] stag_i,
+
+    // stage-3 compare
 );
 
 endmodule
