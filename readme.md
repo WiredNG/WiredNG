@@ -1,4 +1,4 @@
-# Wired-NG
+# Wired-NG（开发中）
 
 Wired Next Gen 处理器核 wired364。
 
