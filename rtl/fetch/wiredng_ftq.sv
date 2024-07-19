@@ -1,3 +1,6 @@
+// 前端取指围绕 ftq 构建
+// ftq 设计方面思路类似 LSU 中的 load queue
+
 module wired_ftq(
     input clk,
     input rst_n,
