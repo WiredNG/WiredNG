@@ -2,7 +2,7 @@
 
 // 32 位固定周期除法器
 
-module wiredleg_div_simp (
+module wired_div32_simp (
     `_WIRED_GENERAL_DEFINE,
     input [31:0] A,
     input [31:0] B,

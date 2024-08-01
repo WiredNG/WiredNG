@@ -2,7 +2,7 @@
 
 // 32 位快速除法器，by t123yh
 
-module wiredleg_div_fast (
+module wired_div32_fast (
     `_WIRED_GENERAL_DEFINE,
     input [31:0] A,
     input [31:0] B,
