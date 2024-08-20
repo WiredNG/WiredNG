@@ -1,10 +1,10 @@
 package RegFileTB;
 
 import WiredRegFile::*;
-
+(* synthesize *)
 module mkTB ();
 
-    RegFile1W#(UInt#(5), Int#(32)) rf <- mkRegFile_1W_nRST;
+    RegFile1W#(UInt#(5), Int#(32)) rf <- mkRegFile_1W_RST;
 
     Reg#(Int#(32)) i <- mkReg(0);
 
