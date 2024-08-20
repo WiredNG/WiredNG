@@ -9,7 +9,7 @@ all: sim
 
 .PHONY: help
 help:
-	@echo '    make  compile      Recompile the IP to Verilog (in dir _verilog)'
+	@echo '    make  verilog      Recompile the IP to Verilog (in dir _verilog)'
 	@echo '                           NOTE: needs Bluespec bsc compiler'
 	@echo ''
 	@echo '    make  clean        Remove intermediate build-files'
@@ -19,13 +19,12 @@ help:
 # Simulation settings
 # ----------------
 # Top-level file and module
-TB ?= TB
-TOPFILE := tb/$(TB).bsv
+TOPFILE := tb/$(TB)TB.bsv
 
 # ================================================================
 # Search path for bsc for .bsv files
 
-BSC_PATH = tb:+
+BSC_PATH = alu:branch:cache:decode:issue:lsu:regfile:rename:retire:tb:top:+
 
 # ================================================================
 # bsc compilation flags
@@ -49,19 +48,18 @@ build/_verilog:
 build/_sim:
 	mkdir -p $@
 
-.PHONY: compile
-compile:  build/_build  build/_verilog
+.PHONY: verilog sim run_sim
+verilog: build/_build build/_verilog
 	@echo  "INFO: Verilog RTL generation ..."
 	bsc -u -elab -verilog  $(RTL_GEN_DIRS) $(BSC_COMPILATION_FLAGS)  -p $(BSC_PATH) $(TOPFILE)
 	@echo  "INFO: Verilog RTL generation finished"
 
-sim:  compile build/_sim
+sim: build/_build build/_verilog build/_sim
 	@echo  "INFO: Simulation binary generation ..."
 	bsc -u -sim $(RTL_GEN_DIRS) -g mkTB $(BSC_COMPILATION_FLAGS) -p $(BSC_PATH) $(TOPFILE)
 	bsc -u -sim $(RTL_GEN_DIRS) -e mkTB $(BSC_COMPILATION_FLAGS) -p $(BSC_PATH) -o $@
 	@echo  "INFO: Simulation binary finished"
 
-.PHONY: run_sim
 run_sim: sim
 	./sim
 
@@ -69,7 +67,7 @@ run_sim: sim
 
 .PHONY: clean
 clean:
-	rm -r -f  *~  */src_Layer*/*~  build
+	rm -r -f   build
 
 .PHONY: full_clean
 full_clean: clean
