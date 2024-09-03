@@ -2,6 +2,12 @@ package WiredTypes
 
 import WiredParam::*;
 
+// 分支 SPEC BITS
+typedef Bit#(BRANCH_SLOT) SpecTag;
+typedef Bit#(TLog#(BRANCH_SLOT)) SpecId;
+
+typedef Bit#(64) Data;
+
 // 流水线中的类型信息
 typedef Bit#(5) GpArchRid;
 typedef Bit#(5) FpArchRid;
@@ -32,5 +38,11 @@ typedef struct {
     Maybe#(PhyRid) src2;
     Maybe#(PhyRid) dst;
 } PhyRegs;
+typedef Bit#(TLog#(ROB_ENTRY_NUM)) RobId;
+
+typedef struct {
+    PhyRid pRid;
+    RobId robId;
+} ExcBundle deriving(Bits, Eq, FShow);
 
 endpackage : WiredTypes
