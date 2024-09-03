@@ -18,4 +18,19 @@ typedef union tagged {
     FpPhyRid fp;
 } PhyRid deriving (Bits, Eq, FShow, Bounded);
 
+typedef struct {
+    Maybe#(ArchRid) src0;
+    Maybe#(ArchRid) src1;
+    Maybe#(ArchRid) src2;
+    Maybe#(ArchRid) dst;
+} ArchRegs; 
+// stx may need 3 src registers / and fmadd may need 3 src registers with an additional dst registers
+
+typedef struct {
+    Maybe#(PhyRid) src0;
+    Maybe#(PhyRid) src1;
+    Maybe#(PhyRid) src2;
+    Maybe#(PhyRid) dst;
+} PhyRegs;
+
 endpackage : WiredTypes
