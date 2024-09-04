@@ -1,0 +1,90 @@
+package LoongArchInst
+
+typedef struct {
+    Bit#(22) opcode;
+    Bit#(5)  rj;
+    Bit#(5)  rd;
+} LA_2R;
+
+Bit#(32) opCLO_W     = 'b0000000000000000000100??????????;
+Bit#(32) opCLZ_W     = 'b0000000000000000000101??????????;
+Bit#(32) opCTO_W     = 'b0000000000000000000110??????????;
+Bit#(32) opCLZ_W     = 'b0000000000000000000111??????????;
+Bit#(32) opCLO_D     = 'b0000000000000000001000??????????;
+Bit#(32) opCLZ_D     = 'b0000000000000000001001??????????;
+Bit#(32) opCTO_D     = 'b0000000000000000001010??????????;
+Bit#(32) opCTZ_D     = 'b0000000000000000001011??????????;
+Bit#(32) opREVB_2H   = 'b0000000000000000001100??????????;
+Bit#(32) opREVB_4H   = 'b0000000000000000001101??????????;
+Bit#(32) opREVB_2W   = 'b0000000000000000001110??????????;
+Bit#(32) opREVB_D    = 'b0000000000000000001111??????????;
+Bit#(32) opREVH_2W   = 'b0000000000000000010000??????????;
+Bit#(32) opREVH_D    = 'b0000000000000000010001??????????;
+Bit#(32) opBITREV_4B = 'b0000000000000000010010??????????;
+Bit#(32) opBITREV_8B = 'b0000000000000000010011??????????;
+Bit#(32) opBITREV_W  = 'b0000000000000000010100??????????;
+Bit#(32) opBITREV_D  = 'b0000000000000000010101??????????;
+Bit#(32) opEXT_W_H   = 'b0000000000000000010110??????????;
+Bit#(32) opWXT_W_B   = 'b0000000000000000010111??????????;
+Bit#(32) opRDTIMELW  = 'b0000000000000000011000??????????;
+Bit#(32) opRDTIMEHW  = 'b0000000000000000011001??????????;
+Bit#(32) opRDTIMED   = 'b0000000000000000011010??????????;
+Bit#(32) opCPUCFG    = 'b0000000000000000011011??????????;
+
+typedef struct {
+    Bit#(17) opcode;
+    Bit#(5)  rk;
+    Bit#(5)  rj;
+    Bit#(5)  rd;
+} LA_3R;
+
+typedef struct {
+    Bit#(12) opcode;
+    Bit#(5)  ra;
+    Bit#(5)  rk;
+    Bit#(5)  rj;
+    Bit#(5)  rd;
+} LA_4R;
+
+typedef struct {
+    Bit#(18) opcode;
+    Bit#(8)  i8;
+    Bit#(5)  rj;
+    Bit#(5)  rd;
+} LA_2RI8;
+
+typedef struct {
+    Bit#(10) opcode;
+    Bit#(12) i12;
+    Bit#(5)  rj;
+    Bit#(5)  rd;
+} LA_2RI12;
+
+typedef struct {
+    Bit#(8)  opcode;
+    Bit#(14) i14;
+    Bit#(5)  rj;
+    Bit#(5)  rd;
+} LA_2RI14;
+
+typedef struct {
+    Bit#(6)  opcode;
+    Bit#(16) i16;
+    Bit#(5)  rj;
+    Bit#(5)  rd;
+} LA_2RI16;
+
+typedef struct {
+    Bit#(6)  opcode;
+    Bit#(16) i21l;
+    Bit#(5)  rj;
+    Bit#(5)  i21h;
+} LA_1RI21;
+
+typedef struct {
+    Bit#(6)  opcode;
+    Bit#(16) i26l;
+    Bit#(10) i26h;
+} LA_I26;
+
+endpackage : LoongArchInst

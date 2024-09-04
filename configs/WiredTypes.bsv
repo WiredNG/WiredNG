@@ -1,6 +1,10 @@
 package WiredTypes
 
 import WiredParam::*;
+import LoongArchInst::*;
+
+// 指令解码信息
+typedef enum
 
 // 分支 SPEC BITS
 typedef Bit#(BRANCH_SLOT) SpecTag;
@@ -38,10 +42,11 @@ typedef struct {
     Maybe#(PhyRid) src2;
     Maybe#(PhyRid) dst;
 } PhyRegs;
+
 typedef Bit#(TLog#(ROB_ENTRY_NUM)) RobId;
 
 typedef struct {
-    PhyRid pRid;
+    PhyRid dst;
     RobId robId;
 } ExcBundle deriving(Bits, Eq, FShow);
 
