@@ -24,7 +24,7 @@ TOPFILE := tb/$(TB)TB.bsv
 # ================================================================
 # Search path for bsc for .bsv files
 
-BSC_PATH = alu:branch:cache:decode:issue:lsu:regfile:rename:retire:tb:top:utils:+
+BSC_PATH = alu:branch:cache:configs:decode:issue:lsu:regfile:rename:retire:tb:top:utils:+
 
 # ================================================================
 # bsc compilation flags
