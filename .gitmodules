@@ -31,3 +31,6 @@
 [submodule "branch"]
 	path = branch
 	url = git@github.com:WiredNG/branch.git
+[submodule "tilelink"]
+	path = tilelink
+	url = git@github.com:WiredNG/tilelink.git
