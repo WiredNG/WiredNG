@@ -1,0 +1,33 @@
+[submodule "alu"]
+	path = alu
+	url = git@github.com:WiredNG/alu.git
+[submodule "tb"]
+	path = tb
+	url = git@github.com:WiredNG/tb.git
+[submodule "retire"]
+	path = retire
+	url = git@github.com:WiredNG/retire.git
+[submodule "rename"]
+	path = rename
+	url = git@github.com:WiredNG/rename.git
+[submodule "lsu"]
+	path = lsu
+	url = git@github.com:WiredNG/lsu.git
+[submodule "issue"]
+	path = issue
+	url = git@github.com:WiredNG/issue.git
+[submodule "docs"]
+	path = docs
+	url = git@github.com:WiredNG/docs.git
+[submodule "decode"]
+	path = decode
+	url = git@github.com:WiredNG/decode.git
+[submodule "configs"]
+	path = configs
+	url = git@github.com:WiredNG/configs.git
+[submodule "cache"]
+	path = cache
+	url = git@github.com:WiredNG/cache.git
+[submodule "branch"]
+	path = branch
+	url = git@github.com:WiredNG/branch.git
