@@ -34,3 +34,6 @@
 [submodule "tilelink"]
 	path = tilelink
 	url = git@github.com:WiredNG/tilelink.git
+[submodule "utils"]
+	path = utils
+	url = git@github.com:WiredNG/utils.git
