@@ -37,3 +37,6 @@
 [submodule "utils"]
 	path = utils
 	url = git@github.com:WiredNG/utils.git
+[submodule "rams"]
+	path = rams
+	url = git@github.com:WiredNG/rams.git
