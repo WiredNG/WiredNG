@@ -39,13 +39,7 @@ BSC_COMPILATION_FLAGS += \
 
 RTL_GEN_DIRS = -vdir build/_verilog -bdir build/_build -info-dir build/_build -simdir build/_sim
 
-build/_build:
-	mkdir -p $@
-
-build/_verilog:
-	mkdir -p $@
-
-build/_sim:
+build/_build build/_verilog build/_sim wave:
 	mkdir -p $@
 
 .PHONY: verilog sim run_sim
@@ -60,9 +54,14 @@ sim: build/_build build/_verilog build/_sim
 	bsc -u -sim $(RTL_GEN_DIRS) -e mkTB $(BSC_COMPILATION_FLAGS) -p $(BSC_PATH) -o $@
 	@echo  "INFO: Simulation binary finished"
 
+ifdef WAVE
+WAVE_FILE := wave/$(WAVE).vcd
+run_sim: wave sim
+		./sim -V $(WAVE_FILE)
+else
 run_sim: sim
-	./sim
-
+		./sim
+endif
 # ================================================================
 
 .PHONY: clean
